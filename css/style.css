@@ -1,0 +1,476 @@
+body {
+    background-image: url('../img/background2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    font-size: 16px;
+    overflow: hidden; /* Prevents the body itself from scrolling */
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Forces body to occupy exactly 100% of the viewport height */
+}
+
+* {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+    box-sizing: border-box; /* Helps manage padding and margins cleanly */
+}
+
+/* Navigation bar styling */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.4); /* Slightly increased opacity */
+    display: flex;              
+    justify-content: center;    
+    align-items: center;
+    gap: 6vw; /* Reduced slightly from 8vw to prevent premature wrapping on medium screens */
+    flex-wrap: nowrap; /* Prevents wrapping onto a second line */
+    padding: 8px;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    z-index: 1000; /* Guarantees navbar stays on top */
+}
+
+/* Navigation links */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 1.5vw;
+    font-weight: bold;
+    transition: background-color 0.3s ease; 
+    white-space: nowrap; /* Prevents words inside a link from breaking onto two lines */
+}
+
+
+/* Hover effect */
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 5px;
+    color: black;
+}
+
+/* Middle Content Scrolling Area */
+main {
+    margin-top: 80px; /* Leave clean vertical gap for the fixed header */
+    margin-bottom: 60px; /* Leave clean vertical gap for the fixed footer */
+    overflow-y: auto; /* Restricts vertical scrolling strictly inside the <main> block */
+    padding: 20px;
+    flex: 1; /* Automatically fills up the remaining screen height */
+}
+
+.welcome {
+    background-color: rgba(255, 255, 255, 0.8); 
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+}
+
+.welcome2 {
+    background-color: rgba(255, 255, 255, 0.8); 
+    margin: 20px auto;
+    padding: 20px;
+    width: 75%;
+}
+
+.grid-container {
+    width: 75%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: rgba(255,255,255,0.8);
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card-skills {
+    grid-column: 1 / -1;
+    background-color: rgba(255,255,255,0.8);
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.card-skills:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card-button {
+    grid-column: 1 / -1;
+    background-color: rgba(255,255,255,0.8);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    background: #111;
+    color: white;
+    border: 2px solid transparent;
+    padding: 8px 22px;
+    border-radius: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: transparent;
+    color: black;
+    border: 2px solid black;
+    transform: scale(1.05);
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.result-table th {
+  background-color: #0f172a;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.result-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.result-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.welcome3 {
+  background-color: rgba(255, 255, 255, 0.8); 
+  margin: 20px auto;
+  padding: 20px;
+  width: 75%;
+  font-family: Arial, sans-serif;
+}
+
+.tech-stack h2 {
+  margin-bottom: 10px;
+}
+
+.tech-stack h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Fixed Footer styling */
+footer {
+    background-color: rgba(255, 255, 255, 0.255);
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 1000; /* Guarantees footer stays on top */
+}
+
+footer p {
+    margin: 0;
+    color: white;
+    font-size: 14px;
+}
+
+/* 1. Responsiveness for smaller viewport widths (Mobile & Tablet) */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Drops to a single-column layout */
+        width: 80%;
+    }
+    .welcome, .welcome2, .welcome3 {
+        width: 90%;
+    }
+}
+
+/* 2. Direct Contact Details & Links */
+.contact-details {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-link {
+    color: #00599C; /* Uses your custom styling blue accent */
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #111;
+}
+
+.profile-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.badge-link {
+    transition: transform 0.2s ease;
+}
+
+.badge-link:hover {
+    transform: scale(1.05); /* Scales the badge up slightly on hover */
+}
+
+/* 3. Form Layout Styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #111;
+    text-align: left;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-family: inherit;
+    font-size: 14px;
+    color: black;
+    transition: all 0.3s ease;
+}
+
+/* 4. Active input styling on highlight */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: #111;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 5. Natural sizing for the form submission button */
+.submit-btn {
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+.project-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 25px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.project-card h3 {
+    margin: 12px 0 6px 0;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.project-card p {
+    line-height: 1.6;
+}
+
+.lang-badge {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.08);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-right: 4px;
+}
+
+.project-links {
+    margin-top: 15px;
+    display: flex;
+    gap: 12px;
+}
+
+.project-links button {
+    font-size: 13px;
+    padding: 6px 16px;
+}
+
+
+.gallery-grid {
+    width: 75%;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 12px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* VERTICAL IMAGE STYLE */
+.gallery-item img {
+    width: 100%;
+    height: 350px;        /* Tall box for portrait look */
+    object-fit: cover;    /* Crops to fit without distortion */
+    border-radius: 10px;
+    display: block;
+}
+
+.gallery-caption {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #111;
+}
+
+/* Split Layout for Welcome Area */
+.welcome-container {
+    margin: 10px auto;
+    padding: 10px;
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.welcome-text {
+    flex: 1;
+    text-align: left;
+}
+
+.welcome-text h1 {
+    margin-top: 0;
+    font-size: 2.2rem;
+}
+
+.welcome-text p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.welcome-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Profile Image Styling */
+.welcome-image {
+    flex-shrink: 0;
+}
+
+.welcome-image img {
+    width: 180px;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Featured Project layout expansion */
+.card-featured {
+    grid-column: 1 / -1; /* Makes it span across both columns */
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card-featured:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.overview-list {
+    text-align: left;
+    display: inline-block;
+}
+
+.overview-list p {
+    margin: 8px 0;
+}
+
+/* Mobile Responsiveness Rules for Split Welcome View */
+@media (max-width: 768px) {
+    .welcome-container {
+        flex-direction: column-reverse; /* Puts image on top on small mobile screens */
+        text-align: center;
+        width: 80%;
+        gap: 20px;
+    }
+    
+    .welcome-text {
+        text-align: center;
+    }
+
+    .welcome-buttons {
+        justify-content: center;
+    }
+    
+    .welcome-image img {
+        width: 140px;
+        height: 180px;
+    }
+}
